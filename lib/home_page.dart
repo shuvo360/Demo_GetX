@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:demo_getx/content_file.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -76,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(20.0),
                       ),
                     ),
-                    onPressed: () => Container(),
+                    onPressed: () => Get.to(() => ContentPage()),
                     child: const Text(
                       "Get started",
                       style: TextStyle(color: Colors.white),
