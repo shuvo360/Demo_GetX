@@ -25,7 +25,7 @@ class _ContentPageState extends State<ContentPage> {
               height: 100,
               margin: const EdgeInsets.only(left: 25, right: 25),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(15),
                 color: const Color(0xFFebf8fd),
               ),
               child: Container(
@@ -65,7 +65,7 @@ class _ContentPageState extends State<ContentPage> {
                       width: 70,
                       height: 70,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(15),
                         color: Color(0xFFf3fafc),
                       ),
                       child: Center(
@@ -110,7 +110,7 @@ class _ContentPageState extends State<ContentPage> {
                     width: 50,
                     height: 50,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(15),
                       color: Color(0xFFfdc33c),
                     ),
                     child: GestureDetector(),
@@ -135,7 +135,7 @@ class _ContentPageState extends State<ContentPage> {
                       width: MediaQuery.of(context).size.width - 20,
                       margin: EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(20),
                         color: i.isEven
                             ? Color.fromARGB(255, 63, 147, 170)
                             : Color(0xFF9294cc),
@@ -205,7 +205,6 @@ class _ContentPageState extends State<ContentPage> {
               height: 30,
             ),
             //recent contest
-            
           ],
         ),
       ),
