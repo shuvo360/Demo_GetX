@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -205,6 +207,119 @@ class _ContentPageState extends State<ContentPage> {
               height: 30,
             ),
             //recent contest
+            Container(
+              padding: const EdgeInsets.only(left: 25, right: 25),
+              child: Row(
+                children: [
+                  Text(
+                    'Recent Contests',
+                    style: TextStyle(
+                        color: Color(0xFF1f2326),
+                        fontSize: 20,
+                        decoration: TextDecoration.none),
+                  ),
+                  Expanded(child: Container()),
+                  Text(
+                    'Show all',
+                    style: TextStyle(
+                        color: Color(0xFFcfd5b3),
+                        fontSize: 15,
+                        decoration: TextDecoration.none),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xFFfdc33c),
+                    ),
+                    child: GestureDetector(),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: ListView.builder(
+                shrinkWrap: true,
+                scrollDirection: Axis.vertical,
+                itemCount: 5,
+                itemBuilder: (_, i) {
+                  return Container(
+                    width: widget,
+                    height: 100,
+                    margin:
+                        const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Color(0xFFebf8fd),
+                    ),
+                    child: Container(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundImage: AssetImage('img/background.jpg'),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Status',
+                                style: TextStyle(
+                                  color: Color(0xFFfdebb2),
+                                  fontSize: 12,
+                                  decoration: TextDecoration.none,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              SizedBox(
+                                width: 70,
+                                child: Text(
+                                  'Text',
+                                  style: TextStyle(
+                                      color: Color(0xFF3b3f42),
+                                      fontSize: 18,
+                                      decoration: TextDecoration.none),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Expanded(child: Container()),
+                          Container(
+                            width: 70,
+                            height: 70,
+                            child: Text(
+                              'Time',
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Color(0xFFb2b8bb),
+                                decoration: TextDecoration.none,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            )),
           ],
         ),
       ),
