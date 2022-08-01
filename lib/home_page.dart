@@ -36,19 +36,19 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'pick your favorite',
+                  'pick your favorite \nContests',
                   style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.w600,
                       color: Colors.white),
                 ),
-                const Text(
-                  'Contests',
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white),
-                ),
+                // const Text(
+                //   'Contests',
+                //   style: TextStyle(
+                //       fontSize: 32,
+                //       fontWeight: FontWeight.w600,
+                //       color: Colors.white),
+                // ),
                 const SizedBox(
                   height: 40,
                 ),

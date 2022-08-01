@@ -1,7 +1,7 @@
-import 'dart:ui';
+//import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 
 class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
@@ -245,81 +245,82 @@ class _ContentPageState extends State<ContentPage> {
               height: 20,
             ),
             Expanded(
-                child: MediaQuery.removePadding(
-              context: context,
-              removeTop: true,
-              child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.vertical,
-                itemCount: 5,
-                itemBuilder: (_, i) {
-                  return Container(
-                    width: widget,
-                    height: 100,
-                    margin:
-                        const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Color(0xFFebf8fd),
-                    ),
-                    child: Container(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 40,
-                            backgroundImage: AssetImage('img/background.jpg'),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Status',
+              child: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  itemCount: 5,
+                  itemBuilder: (_, i) {
+                    return Container(
+                      width: widget,
+                      height: 100,
+                      margin: const EdgeInsets.only(
+                          left: 25, right: 25, bottom: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Color(0xFFebf8fd),
+                      ),
+                      child: Container(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: Row(
+                          children: [
+                            CircleAvatar(
+                              radius: 40,
+                              backgroundImage: AssetImage('img/background.jpg'),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Status',
+                                  style: TextStyle(
+                                    color: Color(0xFFfdebb2),
+                                    fontSize: 12,
+                                    decoration: TextDecoration.none,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                SizedBox(
+                                  width: 70,
+                                  child: Text(
+                                    'Text',
+                                    style: TextStyle(
+                                        color: Color(0xFF3b3f42),
+                                        fontSize: 18,
+                                        decoration: TextDecoration.none),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Expanded(child: Container()),
+                            Container(
+                              width: 70,
+                              height: 70,
+                              child: Text(
+                                'Time',
                                 style: TextStyle(
-                                  color: Color(0xFFfdebb2),
-                                  fontSize: 12,
+                                  fontSize: 10,
+                                  color: Color(0xFFb2b8bb),
                                   decoration: TextDecoration.none,
                                 ),
                               ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              SizedBox(
-                                width: 70,
-                                child: Text(
-                                  'Text',
-                                  style: TextStyle(
-                                      color: Color(0xFF3b3f42),
-                                      fontSize: 18,
-                                      decoration: TextDecoration.none),
-                                ),
-                              ),
-                            ],
-                          ),
-                          Expanded(child: Container()),
-                          Container(
-                            width: 70,
-                            height: 70,
-                            child: Text(
-                              'Time',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Color(0xFFb2b8bb),
-                                decoration: TextDecoration.none,
-                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
-            )),
+            ),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:demo_getx/details_page.dart';
 import 'package:demo_getx/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       // home: const HomePage(),
       initialRoute: "/",
       getPages: [
-        GetPage(name: "/", page: () => HomePage()),
+        GetPage(name: "/", page: () => detailPage()),
       ],
     );
   }
