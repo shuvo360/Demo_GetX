@@ -1,3 +1,4 @@
+import 'package:demo_getx/detail_controller.dart';
 import 'package:demo_getx/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -13,11 +14,27 @@ class detailPage extends StatefulWidget {
 }
 
 class _detailPageState extends State<detailPage> {
+  List info = [];
+  _readdata() async {
+    await DefaultAssetBundle.of(context).loadString('json/img.json').then((p) {
+      setState(() {
+        info = jsonDecode(p);
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    _readdata();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     int _currentIndex = 0;
+    final DetailController fav = Get.put(DetailController());
     return Scaffold(
       body: Container(
         color: Color(0xFFc5e5f3),
@@ -27,7 +44,7 @@ class _detailPageState extends State<detailPage> {
               top: 50,
               left: 10,
               child: IconButton(
-                  onPressed: () => null, icon: Icon(Icons.arrow_back_ios_new)),
+                  onPressed: () => Get.back(), icon: Icon(Icons.home_outlined)),
             ),
             Positioned(
               top: 120,
@@ -48,7 +65,7 @@ class _detailPageState extends State<detailPage> {
                     children: [
                       CircleAvatar(
                         radius: 40,
-                        backgroundImage: AssetImage("img/background.jpg"),
+                        backgroundImage: AssetImage(Get.arguments['img']),
                       ),
                       SizedBox(
                         width: 10,
@@ -58,10 +75,10 @@ class _detailPageState extends State<detailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "name",
+                            Get.arguments['name'],
                             style: TextStyle(
                                 color: Color(0x5FF3b3f42),
-                                fontSize: 18,
+                                fontSize: 20,
                                 decoration: TextDecoration.none),
                           ),
                           SizedBox(
@@ -137,7 +154,7 @@ class _detailPageState extends State<detailPage> {
                         child: Row(
                           children: [
                             Text(
-                              'Title',
+                              Get.arguments['title'],
                               style: TextStyle(
                                   fontSize: 30, fontWeight: FontWeight.w500),
                             ),
@@ -151,9 +168,9 @@ class _detailPageState extends State<detailPage> {
                       Container(
                         width: width,
                         child: Text(
-                          'Text',
+                          Get.arguments['text'],
                           style:
-                              TextStyle(fontSize: 20, color: Color(0xFFb8b8b8)),
+                              TextStyle(fontSize: 15, color: Color(0xFFb8b8b8)),
                         ),
                       ),
                       SizedBox(
@@ -183,16 +200,16 @@ class _detailPageState extends State<detailPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    'name',
+                                    Get.arguments['name'],
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         color: Color(0xFF303030),
                                         fontWeight: FontWeight.w700),
                                   ),
                                   Text(
-                                    'Deadline',
+                                    Get.arguments['time'],
                                     style: TextStyle(
-                                        fontSize: 18, color: Color(0xFFacacac)),
+                                        fontSize: 15, color: Color(0xFFacacac)),
                                   )
                                 ],
                               ),
@@ -213,16 +230,16 @@ class _detailPageState extends State<detailPage> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    '499',
+                                    Get.arguments['prize'],
                                     style: TextStyle(
-                                        fontSize: 18,
+                                        fontSize: 15,
                                         color: Color(0xFF303030),
                                         fontWeight: FontWeight.w700),
                                   ),
                                   Text(
                                     'Prize',
                                     style: TextStyle(
-                                        fontSize: 18, color: Color(0xFFacacac)),
+                                        fontSize: 15, color: Color(0xFFacacac)),
                                   )
                                 ],
                               ),
@@ -289,7 +306,7 @@ class _detailPageState extends State<detailPage> {
             //image
             Stack(
               children: [
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < info.length; i++)
                   Positioned(
                     top: 590,
                     left: (20 + i * 35).toDouble(),
@@ -299,7 +316,7 @@ class _detailPageState extends State<detailPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
                           image: DecorationImage(
-                              image: AssetImage("img/background.jpg"),
+                              image: AssetImage(info[i]['img']),
                               fit: BoxFit.cover)),
                     ),
                   )
@@ -316,7 +333,11 @@ class _detailPageState extends State<detailPage> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Color(0xFFfbc33e)),
-                      child: Icon(Icons.favorite_border, color: Colors.white)),
+                      child: IconButton(
+                        icon: Icon(Icons.favorite_border),
+                        color: Colors.white,
+                        onPressed: () => fav.favcounter(),
+                      )),
                   SizedBox(
                     width: 10,
                   ),
